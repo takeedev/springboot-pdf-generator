@@ -1,8 +1,12 @@
 package takee.dev.pdf.service;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.openpdf.text.Document;
+import org.openpdf.text.Element;
+import org.openpdf.text.Image;
 import org.openpdf.text.Paragraph;
 import org.openpdf.text.pdf.PdfPTable;
 import org.springframework.stereotype.Service;
@@ -13,6 +17,21 @@ import takee.dev.pdf.utils.PdfHelper;
 @Slf4j
 @Service
 public class FuelStationReport extends AbstractPdfReportService<FuelStationDto> {
+
+  @Override
+  protected void addHeader(Document document) {
+    Image logo;
+    try {
+      logo =
+          Image.getInstance(
+              Objects.requireNonNull(getClass().getClassLoader().getResource("images/img.png")));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    logo.scaleToFit(100, 50);
+    logo.setAlignment(Element.ALIGN_LEFT);
+    document.add(logo);
+  }
 
   @Override
   protected void addTitle(Document document) {

@@ -15,6 +15,7 @@ public abstract class AbstractPdfReportService<T> {
     PdfWriter.getInstance(document, out);
 
     document.open();
+    addHeader(document);
     addTitle(document);
     addTable(document, data);
     addFooter(document);
@@ -22,6 +23,8 @@ public abstract class AbstractPdfReportService<T> {
 
     return out.toByteArray();
   }
+
+  protected abstract void addHeader(Document document);
 
   protected abstract void addTitle(Document document);
 
