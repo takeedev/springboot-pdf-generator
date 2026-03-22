@@ -17,12 +17,15 @@ public abstract class AbstractPdfReportService<T> {
     document.open();
     addTitle(document);
     addTable(document, data);
+    addFooter(document);
     document.close();
 
     return out.toByteArray();
   }
 
   protected abstract void addTitle(Document document);
+
+  protected abstract void addFooter(Document document);
 
   protected abstract void addTable(Document document, List<T> data);
 }

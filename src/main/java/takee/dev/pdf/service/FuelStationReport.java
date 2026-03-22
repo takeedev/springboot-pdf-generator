@@ -21,6 +21,12 @@ public class FuelStationReport extends AbstractPdfReportService<FuelStationDto> 
   }
 
   @Override
+  protected void addFooter(Document document) {
+    document.add(new Paragraph("Footer Fuel Station Report"));
+    document.add(new Paragraph(" "));
+  }
+
+  @Override
   protected void addTable(Document document, List<FuelStationDto> data) {
     PdfPTable table = new PdfPTable(new float[] {2, 3, 2});
     table.setWidthPercentage(100);
