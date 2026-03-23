@@ -20,7 +20,6 @@ public abstract class AbstractPdfReportService<T> {
     addTable(document, data);
     addFooter(document);
     document.close();
-
     return out.toByteArray();
   }
 
