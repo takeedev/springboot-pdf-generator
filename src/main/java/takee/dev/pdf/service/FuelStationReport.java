@@ -1,9 +1,5 @@
 package takee.dev.pdf.service;
 
-import java.awt.*;
-import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.openpdf.text.Document;
 import org.openpdf.text.Element;
@@ -15,6 +11,11 @@ import org.springframework.stereotype.Service;
 import takee.dev.pdf.dto.FuelStationDto;
 import takee.dev.pdf.utils.AbstractPdfReportService;
 import takee.dev.pdf.utils.PdfHelper;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
