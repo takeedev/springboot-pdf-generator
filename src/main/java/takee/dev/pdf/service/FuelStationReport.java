@@ -30,12 +30,18 @@ public class FuelStationReport extends AbstractPdfReportService<FuelStationDto> 
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+
     logo.scaleToFit(100, 50);
     logo.setAlignment(Element.ALIGN_LEFT);
+
     document.add(logo);
     document.add(new Paragraph(" "));
+
+    // aad line separator
     LineSeparator lineSeparator = new LineSeparator();
     lineSeparator.setLineColor(Color.LIGHT_GRAY);
+
+    document.newPage();
     document.add(lineSeparator);
   }
 
@@ -68,7 +74,6 @@ public class FuelStationReport extends AbstractPdfReportService<FuelStationDto> 
 
   @Override
   protected void addFooter(Document document) {
-
     document.add(new Paragraph("Footer Fuel Station Report"));
     document.add(new Paragraph(" "));
   }
